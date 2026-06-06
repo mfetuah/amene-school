@@ -114,8 +114,8 @@ const programs = ['Nursery', 'Primary School', 'Junior High School (JHS)']
 .footer__logo-wrap { display: inline-block; margin-bottom: var(--space-4); }
 
 .footer__logo {
-  width: 52px;
-  height: 52px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   filter: drop-shadow(0 1px 4px rgba(0,0,0,0.3));
 }

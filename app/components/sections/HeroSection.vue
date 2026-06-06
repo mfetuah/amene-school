@@ -19,9 +19,7 @@
 
       <div class="hero__actions">
         <NuxtLink to="/admissions" class="btn btn-primary">Apply Now</NuxtLink>
-        <a href="tel:+233551569990" class="btn btn-outline-white">
-          <span class="hero__phone-icon">📞</span> 055 156 9990
-        </a>
+        <NuxtLink to="/contact" class="btn btn-outline-white">Learn More</NuxtLink>
       </div>
 
       <div class="hero__contact-strip">
@@ -73,9 +71,9 @@
   inset: 0;
   background: linear-gradient(
     150deg,
-    rgba(17, 17, 17, 0.82) 0%,
-    rgba(17, 17, 17, 0.55) 60%,
-    rgba(17, 17, 17, 0.7) 100%
+    rgba(15, 37, 64, 0.85) 0%,
+    rgba(15, 37, 64, 0.5) 60%,
+    rgba(216, 97, 60, 0.55) 100%
   );
 }
 
@@ -140,14 +138,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
+  gap: var(--space-5);
   flex-wrap: wrap;
-  padding: var(--space-4) var(--space-6);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(4px);
-  max-width: 640px;
+  padding: var(--space-4) var(--space-8);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  max-width: 660px;
   margin: 0 auto;
 }
 

@@ -99,7 +99,7 @@ const stats = [
 
 .welcome__image-wrap {
   grid-column: 1 / -1;
-  background: var(--color-contrast);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #a8401e 100%);
   border-radius: var(--radius-md);
   padding: var(--space-6);
   text-align: center;
@@ -113,16 +113,17 @@ const stats = [
   width: 56px;
   height: 56px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.2));
 }
 
 .welcome__motto {
   font-family: var(--font-heading);
   font-style: italic;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.5;
   margin: 0;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {

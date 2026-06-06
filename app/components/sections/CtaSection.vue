@@ -5,7 +5,7 @@
       <div class="cta__overlay" />
     </div>
     <div class="container cta__content">
-      <span class="cta__badge">Admissions Open — 2026/27 Academic Year</span>
+      <span class="cta__badge">Admissions Open</span>
       <h2 class="cta__title">Give Your Child the Best Start in Life</h2>
       <p class="cta__subtitle">
         Limited places available. Secure your child's future at Amene International School today.
@@ -14,6 +14,7 @@
       <div class="cta__actions">
         <NuxtLink to="/admissions" class="btn btn-primary">Apply Now</NuxtLink>
         <a href="tel:+233551569990" class="btn btn-outline-white">📞 055 156 9990</a>
+        <a href="tel:+233599449080" class="btn btn-outline-white">📞 059 944 9080</a>
         <a href="mailto:ameneedu@gmail.com" class="btn btn-outline-white">✉️ ameneedu@gmail.com</a>
       </div>
     </div>
@@ -44,7 +45,7 @@
 .cta__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(216, 97, 60, 0.9) 0%, rgba(17, 17, 17, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(216, 97, 60, 0.92) 0%, rgba(15, 37, 64, 0.88) 100%);
 }
 
 .cta__content {

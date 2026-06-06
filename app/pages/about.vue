@@ -22,7 +22,7 @@
           <div class="about-vm__card about-vm__card--mission">
             <div class="about-vm__icon">🎯</div>
             <h2>Our Mission</h2>
-            <p>Training students with a practical approach to problem-solving in our ever changing environment — equipping them with the academic and moral tools to thrive in the 21st century.</p>
+            <p>Training students with a practical approach to problem-solving in our ever changing environment, equipping them with the academic and moral tools to thrive in the 21st century.</p>
           </div>
           <div class="about-vm__card about-vm__card--motto">
             <div class="about-vm__icon">⭐</div>
@@ -53,7 +53,7 @@
             <p style="margin-top: var(--space-4);">
               They are trained to be committed to our community with accountability and discipline.
               We produce life-long learners by offering a comprehensive academic foundation for school
-              children at various ability levels — and preparing future leaders for the ever-changing
+              children at various ability levels and preparing future leaders for the ever-changing
               challenges of the century.
             </p>
           </div>
@@ -67,7 +67,7 @@
         <div class="section-header">
           <span class="section-label">What We Stand For</span>
           <h2 class="section-title">Our Core Values</h2>
-          <p class="section-subtitle">These five values are not just words — they are lived and practised in every classroom, every interaction, every day.</p>
+          <p class="section-subtitle">These five values are not just words, they are lived and practised in every classroom, every interaction, every day.</p>
         </div>
         <div class="about-values__grid">
           <div v-for="value in coreValues" :key="value.title" class="value-card">
@@ -96,7 +96,7 @@
             <blockquote>
               "At Amene International School, we believe deeply that every child has unique gifts and
               unlimited potential. Our commitment is to create an environment where those gifts are
-              discovered, celebrated, and developed — academically, morally, and socially. We do not
+              discovered, celebrated, and developed - academically, morally, and socially. We do not
               just teach subjects; we shape futures. I warmly welcome you to our school community."
             </blockquote>
             <p class="about-leadership__attribution">— Head Teacher, AMENE International School</p>
@@ -118,7 +118,7 @@ useSeoMeta({
 const coreValues = [
   { icon: '📖', title: 'Knowledge', desc: 'We cultivate a deep love for learning and equip students with the knowledge they need to understand and navigate the world.' },
   { icon: '🤝', title: 'Integrity', desc: 'We teach honesty, transparency, and ethical behaviour as the foundation of every student\'s character and daily conduct.' },
-  { icon: '⚖️', title: 'Discipline', desc: 'We instil self-discipline, consistency, and a strong work ethic — habits that lead to excellence in every area of life.' },
+  { icon: '⚖️', title: 'Discipline', desc: 'We instil self-discipline, consistency, and a strong work ethic habits that lead to excellence in every area of life.' },
   { icon: '🙌', title: 'Respect', desc: 'We foster a culture of mutual respect for fellow students, teachers, families, community, and all of creation.' },
   { icon: '💡', title: 'Innovation', desc: 'We encourage creative thinking and practical problem-solving, preparing students to lead and thrive in an ever-changing world.' },
 ]
@@ -139,9 +139,9 @@ const coreValues = [
 
 .about-vm__card--vision { background: rgba(177, 197, 164, 0.15); border-color: var(--color-secondary); }
 .about-vm__card--mission { background: rgba(216, 97, 60, 0.06); border-color: var(--color-primary); }
-.about-vm__card--motto { background: var(--color-contrast); color: #fff; border-color: var(--color-contrast); }
-.about-vm__card--motto h2 { color: #fff; }
-.about-vm__card--motto p { color: rgba(255,255,255,0.75); }
+.about-vm__card--motto { background: rgba(177, 197, 164, 0.25); border-color: var(--color-secondary); }
+.about-vm__card--motto h2 { color: var(--color-contrast); }
+.about-vm__card--motto p { color: var(--color-muted); }
 
 .about-vm__icon { font-size: 2rem; margin-bottom: var(--space-4); }
 
@@ -155,8 +155,9 @@ const coreValues = [
 .about-vm__motto-text {
   font-family: var(--font-heading);
   font-style: italic;
-  font-size: 1.1rem;
-  color: var(--color-tertiary) !important;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary) !important;
   margin-bottom: var(--space-4);
 }
 
@@ -185,27 +186,50 @@ const coreValues = [
 
 .value-card {
   text-align: center;
-  padding: var(--space-7) var(--space-5);
+  padding: var(--space-8) var(--space-6);
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   transition: box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 .value-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  border-color: var(--color-secondary);
 }
 
-.value-card__icon { font-size: 2rem; margin-bottom: var(--space-4); }
+.value-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-4);
+  background: var(--color-base);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
 .value-card__title {
-  font-size: 1.05rem;
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: var(--space-3);
   color: var(--color-primary);
 }
 
-.value-card__desc { font-size: 0.825rem; line-height: 1.7; }
+.value-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+  width: 100%;
+}
 
 .about-leadership__message {
   display: grid;
