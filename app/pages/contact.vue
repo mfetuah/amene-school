@@ -18,7 +18,7 @@
           <div class="contact__info">
             <h2>Visit or Reach Us</h2>
             <p class="contact__intro">
-              Whether you have a question about admissions, school programs, fees, or events — our
+              Whether you have a question about admissions, school programs, fees, or events, our
               friendly team is here from 6am to 3pm every weekday.
             </p>
 
@@ -42,8 +42,7 @@
                 <div class="contact__card-icon">📍</div>
                 <div>
                   <p class="contact__card-label">School Address</p>
-                  <p class="contact__card-value">EX-0072-4305</p>
-                  <p class="contact__card-value">Birim North, Eastern Region, Ghana</p>
+                  <p class="contact__card-value">New Abirem</p>
                 </div>
               </div>
               <div class="contact__card">
@@ -147,7 +146,7 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Contact Us — AMENE International School',
-  description: 'Contact Amene International School in Birim North, Eastern Region, Ghana. Call 055 156 9990, email ameneedu@gmail.com or visit us.',
+  description: 'Contact Amene International School at New Abirem, Eastern Region, Ghana. Call 055 156 9990, email ameneedu@gmail.com or visit us.',
 })
 
 const submitted = ref(false)
@@ -170,7 +169,13 @@ async function submit() {
     const res = await fetch('https://formspree.io/f/xzdepjde', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(form),
+      body: JSON.stringify({
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        enquiry_type: form.subject,
+        message: form.message,
+      }),
     })
     if (res.ok) {
       submitted.value = true
