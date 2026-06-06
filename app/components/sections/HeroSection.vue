@@ -94,7 +94,7 @@
   height: 80px;
   object-fit: contain;
   margin: 0 auto;
-  drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
 
 .hero__school-name {
