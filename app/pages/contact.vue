@@ -51,8 +51,7 @@
                 <div>
                   <p class="contact__card-label">Office Hours</p>
                   <p class="contact__card-value">Mon – Fri: 6:00 AM – 3:00 PM</p>
-                  <p class="contact__card-value">Saturday: Admin only</p>
-                </div>
+                  </div>
               </div>
             </div>
 
@@ -83,14 +82,7 @@
             <div class="contact__map-wrap">
               <h3>Find Us on the Map</h3>
               <div class="contact__map-container">
-                <iframe
-                  src="https://maps.google.com/maps?q=Birim+North,+Eastern+Region,+Ghana&output=embed&z=13"
-                  class="contact__map"
-                  loading="lazy"
-                  allowfullscreen
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title="Amene International School Location"
-                />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.435094876849!2d-0.9964120999999998!3d6.3376474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdeb300e561b289%3A0x71e7da2429060dbe!2sAmene%20International%20School%20-%20New%20Abirem!5e0!3m2!1sen!2sgh!4v1780776473473!5m2!1sen!2sgh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
               <a
                 href="https://maps.app.goo.gl/rDgbcsiVE1Wi7zraA"
@@ -136,9 +128,12 @@
                 <div v-if="submitted" class="contact__success">
                   ✓ Message sent! We'll respond within 24 hours.
                 </div>
-                <button v-else type="submit" class="btn btn-primary" style="width:100%;">
-                  Send Message
-                </button>
+                <template v-else>
+                  <p v-if="error" class="contact__error">{{ error }}</p>
+                  <button type="submit" class="btn btn-primary" style="width:100%;" :disabled="submitting">
+                    {{ submitting ? 'Sending...' : 'Send Message' }}
+                  </button>
+                </template>
               </form>
             </div>
           </div>
@@ -156,6 +151,8 @@ useSeoMeta({
 })
 
 const submitted = ref(false)
+const submitting = ref(false)
+const error = ref('')
 const form = reactive({ name: '', phone: '', email: '', subject: '', message: '' })
 
 const subjects = [
@@ -166,7 +163,27 @@ const subjects = [
   'General Enquiry',
 ]
 
-function submit() { submitted.value = true }
+async function submit() {
+  submitting.value = true
+  error.value = ''
+  try {
+    const res = await fetch('https://formspree.io/f/xzdepjde', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(form),
+    })
+    if (res.ok) {
+      submitted.value = true
+      Object.assign(form, { name: '', phone: '', email: '', subject: '', message: '' })
+    } else {
+      error.value = 'Something went wrong. Please try again.'
+    }
+  } catch {
+    error.value = 'Network error. Please check your connection.'
+  } finally {
+    submitting.value = false
+  }
+}
 </script>
 
 <style scoped>
@@ -304,6 +321,12 @@ function submit() { submitted.value = true }
   border-radius: var(--radius-sm);
   text-align: center;
   font-weight: 600;
+}
+
+.contact__error {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-3);
 }
 
 @media (max-width: 1024px) {
